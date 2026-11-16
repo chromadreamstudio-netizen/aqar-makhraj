@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { supabase } from '../lib/supabase'
 
 export default function Home() {
@@ -9,7 +10,6 @@ export default function Home() {
   const [originalPrice, setOriginalPrice] = useState<number | ''>('')
   const [paidAmount, setPaidAmount] = useState<number | ''>('')
   
-  // حالات النافذة المنبثقة (Modal States)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [phone, setPhone] = useState('')
   const [compound, setCompound] = useState('')
@@ -20,7 +20,6 @@ export default function Home() {
     ? originalPrice - paidAmount 
     : 0
 
-  // دالة إرسال البيانات إلى Supabase
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -76,7 +75,15 @@ export default function Home() {
         submit: 'إرسال الطلب',
         loading: 'جاري الإرسال...',
         success: 'تم الاستلام! سنتواصل معك خلال 24 ساعة.'
-      }
+      },
+      steps: { 
+        title: 'كيف نعمل؟ 4 خطوات لخروج آمن', 
+        s1: 'قيّم عقدك مجاناً عبر المنصة', 
+        s2: 'ارفع مستنداتك ووصولات الدفع', 
+        s3: 'نطابق وحدتك مع مشترين جادين', 
+        s4: 'نتمم التنازل قانونياً في مقر المطور' 
+      },
+      footer: 'جميع الحقوق محفوظة © 2026 عقار مخرج'
     },
     en: {
       dir: 'ltr',
@@ -101,7 +108,15 @@ export default function Home() {
         submit: 'Submit Request',
         loading: 'Submitting...',
         success: 'Received! We will contact you within 24 hours.'
-      }
+      },
+      steps: { 
+        title: 'How it works? 4 Safe Steps', 
+        s1: 'Evaluate your contract for free', 
+        s2: 'Upload documents and receipts', 
+        s3: 'We match you with verified buyers', 
+        s4: 'Legal transfer at developer\'s office' 
+      },
+      footer: 'All rights reserved © 2026 Aqar Makhraj'
     }
   }
 
@@ -116,7 +131,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md relative">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-800"
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl font-bold"
             >
               ✕
             </button>
@@ -168,21 +183,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             
-            <div className="flex-shrink-0 flex items-center cursor-pointer">
-              <Image 
-                src="/logo.jpg" 
-                alt="Aqar Makhraj Logo" 
-                width={160} 
-                height={50} 
-                className="object-contain"
-                priority
-              />
-            </div>
+            {/* اللوجو مع حل مشكلة الخلفية باستخدام mix-blend-multiply */}
+            <Link href="/" className="flex-shrink-0 flex items-center cursor-pointer">
+              <div className="relative w-40 h-14">
+                <Image 
+                  src="/logo.jpg" 
+                  alt="Aqar Makhraj Logo" 
+                  fill
+                  className="object-contain mix-blend-multiply"
+                  priority
+                />
+              </div>
+            </Link>
             
-            {/* تم حل مشكلة تداخل النصوص هنا باستخدام gap-8 بدلاً من space-x */}
             <div className="hidden md:flex items-center gap-8 px-6">
-              <button className="text-slate-600 hover:text-emerald-600 font-medium transition-colors">{t.nav.sell}</button>
-              <button className="text-slate-600 hover:text-emerald-600 font-medium transition-colors">{t.nav.buy}</button>
+              <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-medium transition-colors">
+                {t.nav.sell}
+              </button>
+              <Link href="/opportunities" className="text-slate-600 hover:text-emerald-600 font-medium transition-colors">
+                {t.nav.buy}
+              </Link>
             </div>
 
             <div className="flex items-center gap-4">
@@ -269,6 +289,29 @@ export default function Home() {
 
         </div>
       </div>
+
+      {/* قسم الشرح التفصيلي (خطوات العمل) */}
+      <div className="bg-white py-24 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-16 text-slate-900">{t.steps.title}</h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+            {[t.steps.s1, t.steps.s2, t.steps.s3, t.steps.s4].map((step, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-20 h-20 bg-emerald-50 group-hover:bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 transition-colors shadow-sm">
+                  {index + 1}
+                </div>
+                <h3 className="font-bold text-lg text-slate-800 leading-snug">{step}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* تذييل الصفحة */}
+      <footer className="bg-slate-900 py-10 text-center text-slate-400 text-sm font-medium">
+        <p>{t.footer}</p>
+      </footer>
 
     </main>
   )
