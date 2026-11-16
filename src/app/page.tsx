@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل */}
+      {/* شريط التنقل - تم إضافة زر دخول الشركات */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -114,6 +114,8 @@ export default function Home() {
               <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">عرض وحدتك للبيع</button>
               <Link href="/opportunities" className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">تصفح الفرص المتاحة</Link>
               <a href="#how-it-works" className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">كيف بنشتغل؟</a>
+              {/* رابط بوابة الشركات الجديد */}
+              <Link href="/b2b" className="text-slate-500 hover:text-blue-600 font-bold transition-colors border-r-2 border-slate-200 pr-6">بوابة الشركات</Link>
             </div>
             <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">ابدأ الآن</button>
           </div>
@@ -147,7 +149,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم الثاني: مثال بالأرقام (القلب التسويقي) */}
+      {/* القسم الثاني: مثال بالأرقام */}
       <section className="py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -340,7 +342,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* الفوتر الشامل والضخم */}
+      {/* الفوتر الشامل */}
       <footer className="bg-slate-900 text-slate-300 pt-20 pb-10 border-t-4 border-emerald-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -360,8 +362,9 @@ export default function Home() {
               <ul className="space-y-4 font-medium">
                 <li><Link href="/" className="hover:text-emerald-400 transition-colors">الرئيسية</Link></li>
                 <li><Link href="/opportunities" className="hover:text-emerald-400 transition-colors">الفرص المتاحة (للمشترين)</Link></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">كيف بنشتغل (للبائعين)</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">بوابة المطورين العقاريين</a></li>
+                <li><a href="#how-it-works" className="hover:text-emerald-400 transition-colors">كيف بنشتغل (للبائعين)</a></li>
+                {/* رابط الفوتر تم تحديثه هنا 👇 */}
+                <li><Link href="/b2b" className="hover:text-emerald-400 transition-colors text-blue-400 font-bold">بوابة المطورين العقاريين</Link></li>
               </ul>
             </div>
 
