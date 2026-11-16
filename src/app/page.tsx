@@ -273,7 +273,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center">
-            <p>جميع الحقوق محفوظة © {new Date().getFullYear()} شركة عقار مخرج.</p>
+            <p>جميع الحقوق محفوظة © 2026 شركة عقار مخرج.</p>
             <p className="mt-2 md:mt-0">صُنع بكل فخر في العراق 🇮🇶</p>
           </div>
         </div>
