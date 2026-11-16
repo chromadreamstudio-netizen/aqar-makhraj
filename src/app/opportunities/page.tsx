@@ -33,7 +33,7 @@ export default function Opportunities() {
 
   // الدالة الجديدة لزر "طلب شراء" (تحويل فوري للواتساب مع رسالة جاهزة)
   const handleBuyRequest = (compoundName: string) => {
-    const whatsappNumber = "9647700000000" // ضع هنا رقم أخو شريكك العراقي
+    const whatsappNumber = "+9647726394755" // ضع هنا رقم أخو شريكك العراقي
     const message = encodeURIComponent(`مرحباً عقار مخرج، أنا مستثمر جاهز ومهتم باقتناص الفرصة المعروضة في مجمع (${compoundName}). أرجو تزويدي بالتفاصيل وآلية الدفع.`)
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
   }
