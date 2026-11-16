@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface Lead {
   id: string
@@ -19,10 +20,29 @@ interface Lead {
 export default function AdminDashboard() {
   const [leads, setLeads] = useState<Lead[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    fetchLeads()
+    checkAuth()
   }, [])
+
+  // 1. فحص تسجيل الدخول والحماية
+  const checkAuth = async () => {
+    const { data: { session } } = await supabase.auth.getSession()
+    if (!session) {
+      router.push('/admin/login') // طرد المستخدم غير المسجل إلى صفحة الدخول
+    } else {
+      setIsAuthenticated(true)
+      fetchLeads() // جلب البيانات فقط إذا كان مسجلاً
+    }
+  }
+
+  // 2. تسجيل الخروج
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+    router.push('/admin/login')
+  }
 
   const fetchLeads = async () => {
     setIsLoading(true)
@@ -35,12 +55,10 @@ export default function AdminDashboard() {
     setIsLoading(false)
   }
 
-  // دالة الاعتماد: تنقل الطلب لجدول العقارات المعتمدة وتغير حالته
   const handleApproveAndPublish = async (lead: Lead) => {
     const isConfirmed = window.confirm(`هل أنت متأكد من اعتماد ونشر عقار ${lead.compound_name}؟`)
     if (!isConfirmed) return
 
-    // 1. إضافة العقار لجدول properties العام
     const { error: insertError } = await supabase.from('properties').insert([{
       lead_id: lead.id,
       compound_name: lead.compound_name,
@@ -53,12 +71,13 @@ export default function AdminDashboard() {
       return
     }
 
-    // 2. تحديث حالة الطلب في جدول leads
     await supabase.from('leads').update({ is_published: true }).eq('id', lead.id)
-    
     alert('تم النشر بنجاح! العقار متاح الآن للمشترين.')
-    fetchLeads() // تحديث الجدول
+    fetchLeads()
   }
+
+  // شاشة تحميل بيضاء ريثما يتأكد النظام من صلاحية الدخول
+  if (!isAuthenticated) return <div className="min-h-screen bg-slate-100"></div>
 
   return (
     <main className="min-h-screen bg-slate-100 font-sans" dir="rtl">
@@ -68,12 +87,18 @@ export default function AdminDashboard() {
             <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-xl">م</div>
             <h1 className="font-bold text-2xl">غرفة العمليات | الاعتمادات</h1>
           </div>
-          <Link href="/" className="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg text-sm transition-colors">
-            زيارة الموقع &rarr;
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-slate-300 hover:text-white text-sm font-semibold transition-colors">
+              زيارة الموقع
+            </Link>
+            <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+              تسجيل الخروج
+            </button>
+          </div>
         </div>
       </nav>
 
+      {/* ... (باقي كود الإحصائيات وجدول الطلبات كما هو بدون أي تغيير) ... */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-2xl shadow-sm border-r-4 border-r-emerald-500">
