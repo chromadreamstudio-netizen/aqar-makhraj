@@ -22,7 +22,6 @@ export default function Opportunities() {
 
   const fetchProperties = async () => {
     setIsLoading(true)
-    // نسحب البيانات هنا من جدول properties بدلاً من leads
     const { data, error } = await supabase
       .from('properties')
       .select('*')
@@ -30,6 +29,13 @@ export default function Opportunities() {
 
     if (!error) setProperties(data || [])
     setIsLoading(false)
+  }
+
+  // الدالة الجديدة لزر "طلب شراء" (تحويل فوري للواتساب مع رسالة جاهزة)
+  const handleBuyRequest = (compoundName: string) => {
+    const whatsappNumber = "9647700000000" // ضع هنا رقم أخو شريكك العراقي
+    const message = encodeURIComponent(`مرحباً عقار مخرج، أنا مستثمر جاهز ومهتم باقتناص الفرصة المعروضة في مجمع (${compoundName}). أرجو تزويدي بالتفاصيل وآلية الدفع.`)
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
   }
 
   return (
@@ -79,9 +85,15 @@ export default function Opportunities() {
                       <span className="text-slate-600 font-semibold">المتبقي أقساط (للشركة)</span>
                       <span className="text-2xl font-black text-blue-600">${remaining > 0 ? remaining.toLocaleString() : 0}</span>
                     </div>
-                    <button className="w-full mt-6 bg-slate-900 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-colors shadow-md">
+                    
+                    {/* تم تفعيل الزر هنا 👇 */}
+                    <button 
+                      onClick={() => handleBuyRequest(prop.compound_name)}
+                      className="w-full mt-6 bg-slate-900 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-colors shadow-md"
+                    >
                       طلب شراء / تفاصيل
                     </button>
+                    
                   </div>
                 </div>
               )
