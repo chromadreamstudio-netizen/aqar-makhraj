@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل */}
+      {/* شريط التنقل المتوافق مع الهوية العراقية */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -432,7 +432,7 @@ export default function Home() {
           </div>
       </section>
 
-      {/* الفوتر المُحدّث والمنسّق */}
+      {/* الفوتر المُحدّث والمنسّق بدون خطأ new Date() */}
       <footer id="contact" className="bg-slate-900 text-slate-400 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
@@ -481,7 +481,7 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* روابط قانونية - تم ربطها لتفتح نوافذ واتساب مؤقتاً أو صفحات فارغة لتكون فعّالة */}
+            {/* روابط قانونية */}
             <div className="text-right">
               <h4 className="text-white font-bold mb-6 text-sm">قانوني</h4>
               <ul className="space-y-4 text-sm font-medium">
@@ -514,7 +514,7 @@ export default function Home() {
           
           {/* حقوق النشر */}
           <div className="border-t border-slate-800 pt-8 mt-8 text-center text-xs font-medium text-slate-500">
-            جميع الحقوق محفوظة © {new Date().getFullYear()} عقار مَخْرَج
+            جميع الحقوق محفوظة © 2026 عقار مَخْرَج
           </div>
         </div>
       </footer>
