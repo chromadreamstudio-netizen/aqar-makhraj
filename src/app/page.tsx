@@ -57,7 +57,6 @@ export default function Home() {
     }
   }
 
-  // --- زر الواتساب العائم ---
   const FloatingWhatsApp = () => {
     return (
       <a 
@@ -69,7 +68,7 @@ export default function Home() {
         <div className="flex items-center gap-3">
           <div className="flex flex-col text-right">
              <span className="text-sm font-bold block">اسأل عقار مَخْرَج</span>
-             <span className="text-xs text-emerald-400">بيرد في ثواني</span>
+             <span className="text-xs text-emerald-400">نرد بثواني</span>
           </div>
           <span className="text-2xl">💬</span>
         </div>
@@ -124,7 +123,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل */}
+      {/* شريط التنقل المتوافق مع الهوية العراقية */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -132,84 +131,79 @@ export default function Home() {
               <div className="relative w-32 h-10"><Image src="/logo.jpg" alt="Logo" fill className="object-contain mix-blend-multiply" priority /></div>
             </Link>
             <div className="hidden md:flex items-center gap-8 px-6 text-sm">
-              <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">بيع وحدتك</button>
+              <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">عرض وحدتك</button>
               <Link href="/opportunities" className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">الفرص المتاحة</Link>
-              <a href="#how-it-works" className="text-slate-600 hover:text-emerald-600 font-bold transition-colors">إزاي بنشتغل</a>
+              <a href="#how-it-works" className="text-slate-600 hover:text-emerald-600 font-bold transition-colors">شلون نشتغل</a>
               <a href="#story" className="text-slate-600 hover:text-emerald-600 font-bold transition-colors">قصتنا</a>
-              <a href="#contact" className="text-slate-600 hover:text-emerald-600 font-bold transition-colors">كلمنا</a>
-              <Link href="/b2b" className="text-slate-500 hover:text-blue-600 font-bold transition-colors border-r-2 border-slate-200 pr-6">للمستثمرين</Link>
+              <a href="#contact" className="text-slate-600 hover:text-emerald-600 font-bold transition-colors">تواصل معنا</a>
+              <Link href="/b2b" className="text-slate-500 hover:text-blue-600 font-bold transition-colors border-r-2 border-slate-200 pr-6">بوابة المطورين</Link>
             </div>
             <div className="flex gap-2">
-                <Link href="/opportunities" className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 px-5 py-2 rounded-xl font-bold text-sm shadow-sm transition-all hidden sm:block">عايز تشتري</Link>
-                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl font-bold text-sm shadow-md transition-all">عايز تبيع</button>
+                <Link href="/opportunities" className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 px-5 py-2 rounded-xl font-bold text-sm shadow-sm transition-all hidden sm:block">أريد أشتري</Link>
+                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl font-bold text-sm shadow-md transition-all">أريد أبيع</button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* القسم الأول: الهيرو التسويقي (مستوحى من عقار إكزت) */}
+      {/* القسم الأول: الهيرو التسويقي */}
       <section className="bg-slate-900 py-24 overflow-hidden relative text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            {/* النص التسويقي */}
             <div className="space-y-8 order-2 lg:order-1 text-center lg:text-right">
               <span className="inline-block px-4 py-1.5 rounded-full bg-slate-800 text-emerald-400 text-xs font-bold tracking-wide border border-slate-700">
-                منصة التنازل عن وحدات التقسيط — بدون أوفر
+                منصة التنازل عن وحدات التقسيط — بدون أوفر (سرقفلية)
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight">
-                البايع يسترجع كل اللي دفعه كاش، <br/>
-                <span className="text-emerald-400">والمشتري ياخد سعر التعاقد القديم</span>
+                البائع يسترجع كل اللي دفعه كاش، <br/>
+                <span className="text-emerald-400">والمشتري ياخذ السعر القديم</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-medium">
-                لو مش قادر تكمّل أقساطك: بيع وحدتك بدون أوفر واسترجع فلوسك، بدل ما تخاطر بخسارة ممكن توصل لـ 15% من سعر الوحدة في الإلغاء حسب عقدك. ولو بتدوّر على وحدة: اشتري بسعر تعاقد قديم أرخص من سعر السوق وكمّل الأقساط. كل الأرقام متحققة بالمستندات — وإحنا معاكم بنسهّل إجراءات التنازل خطوة بخطوة لحد الإتمام.
+                إذا ما تقدر تكمّل أقساطك: بيع وحدتك بدون سرقفلية واسترجع فلوسك، بدل ما تخاطر بخسارة كبيرة من قيمة العقد بسبب غرامات الإلغاء. وإذا تدور على فرصة: اشتري بسعر تعاقد قديم وتجنب غلاء السوق وكمّل الأقساط براحتك. كل الأرقام مدققة قانونياً.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                 <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg">
-                  بيع وحدتك
+                  أريد أبيع وحدتي
                 </button>
                 <Link href="/opportunities" className="bg-transparent border border-slate-600 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center">
-                  شوف فرص الشراء
+                  تصفح فرص الشراء
                 </Link>
               </div>
               <p className="text-sm text-slate-500 font-medium flex items-center justify-center lg:justify-start gap-2">
-                <span className="text-emerald-500">🛡️</span> للبايع: مجانًا تمامًا — مفيش أي عمولة عليك. للمشتري: أرقام موثقة قبل ما تدفع جنيه.
+                <span className="text-emerald-500">🛡️</span> للبائع: مجاناً بالكامل. للمشتري: أرقام موثقة قبل ما تدفع أي دينار.
               </p>
             </div>
 
-            {/* بطاقة المثال الديناميكية (من إكزت) */}
             <div className="order-1 lg:order-2">
                 <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 relative">
-                    {/* حالة الإلغاء */}
                     <div className="mb-8 border-b border-slate-700 pb-8">
                         <div className="flex justify-between items-center mb-4">
-                            <span className="text-red-400 font-bold text-sm bg-red-900/30 px-3 py-1 rounded-full">✕ لو رجّع الوحدة للمطوّر</span>
+                            <span className="text-red-400 font-bold text-sm bg-red-900/30 px-3 py-1 rounded-full">✕ لو فسخت العقد ويه الشركة</span>
                         </div>
                         <div className="flex justify-between items-end">
                             <div>
-                                <p className="text-sm text-slate-400 mb-1">خصم الإلغاء (15% من سعر الوحدة كله)</p>
+                                <p className="text-sm text-slate-400 mb-1">خصم الإلغاء (15% من سعر الوحدة الإجمالي)</p>
                                 <p className="text-3xl font-black text-red-500">- 22,500,000 د.ع</p>
                             </div>
                         </div>
-                         <p className="text-xs text-red-400 mt-2">خسارة كبيرة من فلوسه + سنين انتظار</p>
+                         <p className="text-xs text-red-400 mt-2">خسارة كبيرة من فلوسك + انتظار طويل للترجيع</p>
                     </div>
 
-                    {/* علامة الـ VS */}
                     <div className="absolute left-1/2 top-[47%] transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-slate-900 border-4 border-slate-800 rounded-full flex items-center justify-center text-slate-500 font-black text-xs z-10">VS</div>
 
-                    {/* حالة التنازل */}
                     <div className="bg-emerald-900/20 p-6 rounded-2xl border border-emerald-800/50">
                         <div className="flex justify-between items-center mb-4">
-                            <span className="text-emerald-400 font-bold text-sm bg-emerald-900/50 px-3 py-1 rounded-full">✓ لو نقل تعاقده عن طريق عقار مَخْرَج</span>
+                            <span className="text-emerald-400 font-bold text-sm bg-emerald-900/50 px-3 py-1 rounded-full">✓ لو نقلت العقد عن طريق عقار مَخْرَج</span>
                         </div>
                         <div className="flex justify-between items-end">
                             <div>
-                                <p className="text-sm text-emerald-500/70 mb-1">يسترجع اللي دفعه</p>
+                                <p className="text-sm text-emerald-500/70 mb-1">تسترجع كل اللي دفعته</p>
                                 <p className="text-4xl font-black text-emerald-400">40,000,000 د.ع</p>
-                                <p className="text-xs text-emerald-500 mt-1">كاش عند إتمام النقل</p>
+                                <p className="text-xs text-emerald-500 mt-1">كاش ومضمون عند التنازل</p>
                             </div>
                         </div>
-                        <p className="text-xs text-emerald-400 mt-4 font-bold bg-emerald-900/30 inline-block px-3 py-1.5 rounded-lg">فلوسه كاملة، والمشتري كسب سعر قديم</p>
+                        <p className="text-xs text-emerald-400 mt-4 font-bold bg-emerald-900/30 inline-block px-3 py-1.5 rounded-lg">فلوسك ترجع كاملة، والمشتري يكسب السعر القديم</p>
                     </div>
                 </div>
             </div>
@@ -218,7 +212,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم الثاني: الإحصائيات (جديد) */}
+      {/* القسم الثاني: الإحصائيات */}
       <section className="py-12 bg-white border-b border-slate-100">
           <div className="max-w-5xl mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-slate-100">
@@ -230,46 +224,44 @@ export default function Home() {
                   <div className="text-center py-6">
                       <p className="text-sm font-bold text-slate-500 mb-2 flex items-center justify-center gap-2">قيمة الوحدات في السوق <span className="bg-slate-100 text-slate-400 px-2 py-0.5 rounded text-[10px]">تقديري</span></p>
                       <p className="text-5xl font-black text-slate-900">12.5 <span className="text-xl text-slate-400 font-medium">مليار د.ع</span></p>
-                      <p className="text-xs text-slate-400 mt-2">بسعر السوق الحالي للوحدة</p>
+                      <p className="text-xs text-slate-400 mt-2">حسب أسعار السوق الحالية</p>
                   </div>
               </div>
           </div>
       </section>
 
-      {/* القسم الثالث: المزايا المزدوجة (البائع والمشتري) */}
+      {/* القسم الثالث: المزايا المزدوجة */}
       <section className="py-24 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto mb-16">
-                  <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">طرف محتاج يبيع، وطرف مستني الفرصة ــ وإحنا بنوصلهم</h2>
-                  <p className="text-lg text-slate-600 font-medium">ده مش ريسيل عادي: مفيش أوفر خالص. البايع بياخد اللي دفعه بالظبط والمشتري بياخد سعر التعاقد القديم زي ما هو.</p>
+                  <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">طرف محتاج يبيع، وطرف ينتظر فرصة ــ وإحنا نوصلهم</h2>
+                  <p className="text-lg text-slate-600 font-medium">هنا لا توجد سرقفلية أو مبالغة. البائع يستلم المبالغ اللي دفعها بالدينار، والمشتري ياخذ عقد الشركة القديم مثل ما هو.</p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* كارت المشتري */}
                   <div className="bg-slate-900 text-white rounded-3xl p-10 shadow-xl relative overflow-hidden">
-                      <div className="absolute top-6 right-6 bg-slate-800 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-slate-700">المشتري</div>
-                      <h3 className="text-3xl font-black mb-4 pr-16">وحدة بالتقسيط من غير ما تدفع أوفر لحد</h3>
-                      <p className="text-slate-400 mb-8 leading-relaxed font-medium">بتاخد الوحدة بسعر تعاقدها القديم — أرخص من سعر المطور النهارده بفرق كبير — وتكمّل الأقساط العادية. الفرق ده مكسبك من يوم ما تمضي، ومن غير جنيه أوفر.</p>
+                      <div className="absolute top-6 right-6 bg-slate-800 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-slate-700">للمشتري المستثمر</div>
+                      <h3 className="text-3xl font-black mb-4 pr-16">وحدة بالتقسيط بدون أي مبالغ إضافية</h3>
+                      <p className="text-slate-400 mb-8 leading-relaxed font-medium">تاخذ الوحدة بسعر تعاقدها القديم — أرخص من سعر الشركة اليوم بفرق كبير — وتكمّل الأقساط العادية. الفرق هذا هو مكسبك الصافي.</p>
                       <ul className="space-y-4 mb-10">
-                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> سعر التعاقد القديم زي ما هو — الأوفر ممنوع على المنصة</li>
-                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> العقد والمدفوعات والمتبقي متحقق منهم قبل ما تشوف الفرصة</li>
-                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> تنازل رسمي معتمد من المطور — مش توكيلات وكلام</li>
+                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> سعر التعاقد القديم ثابت — السرقفلية ممنوعة بالمنصة</li>
+                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> الوصولات والمدفوعات مدققة قانونياً قبل عرض الفرصة</li>
+                          <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> التنازل يتم رسمياً بمقر الشركة المطورة — لا نتعامل بالوكالات العرفية</li>
                       </ul>
-                      <Link href="/opportunities" className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">شوف الفرص المتاحة</Link>
+                      <Link href="/opportunities" className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">تصفح الفرص المتاحة</Link>
                   </div>
 
-                  {/* كارت البائع */}
                   <div className="bg-white rounded-3xl p-10 shadow-lg border border-slate-100 relative">
-                      <div className="absolute top-6 right-6 bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold">البايع ــ صاحب الوحدة</div>
-                      <h3 className="text-3xl font-black text-slate-900 mb-4 pr-32">بدون أوفر = أسرع بيع في السوق</h3>
-                      <p className="text-slate-600 mb-8 leading-relaxed font-medium">لأن سعرك هو نفس اللي دفعته من غير أي زيادة، وحدتك بتبقى أحسن فرصة قدام المشترين — فبتتباع أسرع. تسترجع فلوسك كاملة كاش، بدل ما المطور يخصم منك ويقسّط لك الباقي على سنين.</p>
+                      <div className="absolute top-6 right-6 bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold">للبائع صاحب الوحدة</div>
+                      <h3 className="text-3xl font-black text-slate-900 mb-4 pr-32">البيع بالسعر الأصلي = أسرع تسييل بالسوق</h3>
+                      <p className="text-slate-600 mb-8 leading-relaxed font-medium">لأن سعرك العادل هو نفس اللي دفعته، وحدتك تعتبر لقطة للمستثمرين فتباع أسرع. تسترجع فلوسك كاش كاملة بدل غرامات الشركات.</p>
                       <ul className="space-y-4 mb-8">
                           <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> تسترجع 100% من اللي دفعته — كاش عند إتمام التنازل</li>
-                          <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> من غير إعلانات علنية ولا تليفونات سماسرة</li>
-                          <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> بنجهّز معاك ملف التنازل وبنتابع معاك خطوة بخطوة لحد الإمضاء</li>
+                          <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> بيع صامت بدون إعلانات مزعجة ومكالمات دلالين</li>
+                          <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> نجهز ملف التنازل ونرافقك لحد توقيع العقد واستلام الكاش</li>
                       </ul>
                       <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl text-center font-bold mb-6 text-sm">
-                          مجانًا عليك تمامًا — عقار مَخْرَج مش بتاخد أي عمولة من البايع.
+                          الخدمة مجانية بالكامل للبائع — عقار مَخْرَج لا يأخذ أي عمولة منك.
                       </div>
                       <button onClick={() => setIsModalOpen(true)} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors">اعرض وحدتك للتنازل</button>
                   </div>
@@ -277,12 +269,12 @@ export default function Home() {
           </div>
       </section>
 
-      {/* القسم الرابع: إيه الفرق بينا وبين الريسيل العادي؟ */}
+      {/* القسم الرابع: المقارنة */}
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">إيه الفرق بينا وبين الريسيل العادي؟</h2>
-            <p className="text-lg text-slate-500 font-medium">السوق مليان إعلانات وسماسرة — إحنا بنشتغل بطريقة تانية خالص.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">شنو الفرق بينا وبين المكاتب العقارية؟</h2>
+            <p className="text-lg text-slate-500 font-medium">السوق مليء بالوسطاء — نحن نقدم منظومة تقنية شفافة تماماً.</p>
           </div>
           
           <div className="overflow-hidden rounded-3xl shadow-md border border-slate-200">
@@ -291,29 +283,29 @@ export default function Home() {
                 <tr>
                   <th className="p-6 font-bold text-slate-400 text-sm border-l border-slate-200 w-1/5 bg-white"></th>
                   <th className="p-6 font-black text-xl border-l border-slate-200 w-2/5 bg-slate-900 text-white text-center">عقار مَخْرَج</th>
-                  <th className="p-6 font-bold text-slate-500 text-center w-2/5">الريسيل العادي</th>
+                  <th className="p-6 font-bold text-slate-500 text-center w-2/5">السوق العادي (الدلالين)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr>
                   <td className="p-6 font-bold text-slate-900 bg-slate-50 border-l border-slate-200 text-center">السعر</td>
-                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>بدون أوفر — السعر = اللي اتدفع فعلًا، موثق بالإيصالات</td>
-                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>أوفر فوق السعر، ومبالغة عشان الفصال</td>
+                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>بدون سرقفلية — السعر المطلوب هو ما تم دفعه بالوصولات فقط</td>
+                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>مبالغة في السعر لغرض المساومة والفصال</td>
                 </tr>
                 <tr>
-                  <td className="p-6 font-bold text-slate-900 bg-slate-50 border-l border-slate-200 text-center">الأرقام</td>
-                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>متحققين من العقد والمدفوعات والمتبقي — بالمستندات الرسمية</td>
-                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>كلام البائع والسمسار من غير دليل</td>
+                  <td className="p-6 font-bold text-slate-900 bg-slate-50 border-l border-slate-200 text-center">الموثوقية</td>
+                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>نتحقق من العقد والمدفوعات والمتبقي بالمستندات الرسمية</td>
+                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>كلام شفهي بين البائع والوسيط بدون دليل قاطع</td>
                 </tr>
                 <tr>
                   <td className="p-6 font-bold text-slate-900 bg-slate-50 border-l border-slate-200 text-center">الإجراءات</td>
-                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>بنمشي معاك في كل خطوات التنازل لحد الإمضاء والقبض</td>
-                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>السمسار بيوصلك وبعدين انت وحظك</td>
+                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>نرافقك خطوة بخطوة لحد مقر الشركة للتوقيع واستلام المبلغ</td>
+                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>الوسيط يربطك بالطرف الآخر ويتركك تتحمل مسؤولية الإجراءات</td>
                 </tr>
                 <tr>
                   <td className="p-6 font-bold text-slate-900 bg-slate-50 border-l border-slate-200 text-center">العمولة</td>
-                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>مجانًا للبايع — 1.5% على المشتري بس، وعند إتمام التنازل فقط</td>
-                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>سعي وسمسرة من الطرفين في كل خطوة ومفاجآت</td>
+                  <td className="p-6 text-slate-800 font-semibold border-l border-slate-200 bg-emerald-50/30 text-center"><span className="text-emerald-500 ml-2">✓</span>مجاناً للبائع تماماً — نسبة بسيطة تؤخذ من المشتري فقط عند إتمام العقد</td>
+                  <td className="p-6 text-slate-500 text-center"><span className="text-red-400 ml-2">✕</span>سعي وعمولات تؤخذ من الطرفين وقد تفشل الصفقة بسببها</td>
                 </tr>
               </tbody>
             </table>
@@ -321,20 +313,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم الخامس: إزاي بنشتغل (الخطوات) */}
+      {/* القسم الخامس: إزاي بنشتغل */}
       <section id="how-it-works" className="bg-slate-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">إزاي بنشتغل؟</h2>
-            <p className="text-lg text-slate-600 font-medium">خمس خطوات واضحة، ومسؤول حالة معاك في كل خطوة.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">شلون نشتغل؟</h2>
+            <p className="text-lg text-slate-600 font-medium">خمس خطوات واضحة، ومندوب المنصة يرافقك في كل خطوة.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
             {[
-              { num: '1', title: 'قيّم عقدك', desc: 'دخل بيانات عقدك واعرف موقفك مجانًا — وأول ما تبعت طلبك، حسابك بيتجهّز تلقائيًا' },
-              { num: '2', title: 'ارفع مستنداتك', desc: 'العقد وإيصالات السداد — بنراجعها ونتحقق منها' },
-              { num: '3', title: 'بنجّهز فرصتك', desc: 'بنتحقق من الأرقام بالمستندات ونجهّز عرض موثوق للمشترين' },
-              { num: '4', title: 'بنلاقي المشتري', desc: 'بنطابق وحدتك مع مشترين قادرين فعلًا يكمّلوا' },
-              { num: '5', title: 'نقل التعاقد', desc: 'بنمشي معاك في إجراءات النقل خطوة بخطوة لحد ما تقبض' }
+              { num: '1', title: 'تقييم العقد', desc: 'أدخل بيانات عقدك لتعرف موقفك المالي فوراً، ليتم تجهيز ملفك في النظام.' },
+              { num: '2', title: 'رفع المستندات', desc: 'إرفاق العقد ووصولات السداد ليقوم فريقنا القانوني بتدقيقها.' },
+              { num: '3', title: 'تجهيز الفرصة', desc: 'بعد التحقق من الأرقام، نعرض وحدتك بأسلوب احترافي للمستثمرين.' },
+              { num: '4', title: 'توفير المشتري', desc: 'نطابق وحدتك مع مشترين يمتلكون الكاش الفعلي والجاهزية للإكمال.' },
+              { num: '5', title: 'نقل التعاقد', desc: 'نرافقك لإجراءات النقل القانوني في الشركة المطورّة لضمان استلام أموالك.' }
             ].map((step, index) => (
               <div key={index} className="bg-white rounded-3xl p-8 text-center border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col items-center">
                 <div className="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center text-lg font-black mb-6">{step.num}</div>
@@ -350,8 +342,8 @@ export default function Home() {
       <section className="bg-white py-24 border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-black text-slate-900 mb-4">معايير الخروج العادل</h2>
-            <p className="text-slate-500 font-medium">وضعنا قواعد ملزمة لنفسنا قبل ما نطلبك تثق فينا.</p>
+            <h2 className="text-3xl font-black text-slate-900 mb-4">معايير الخروج الآمن</h2>
+            <p className="text-slate-500 font-medium">مواثيق نلتزم بها لضمان حق الطرفين.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
@@ -359,67 +351,64 @@ export default function Home() {
                 <div className="text-blue-500 mt-1">🛡️</div>
                 <div>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">كل رقم له مصدر</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">بنوضّحلك إيه المؤكّد بالمستندات وإيه التقديري — من غير وعود مضللة</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">نوضح للمشتري الأرقام المؤكدة بالمستندات فقط، نرفض المبالغات والأسعار الوهمية.</p>
                 </div>
             </div>
             <div className="flex gap-4">
                 <div className="text-blue-500 mt-1">🛡️</div>
                 <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">مجانًا للبايع بالكامل</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">مفيش أي عمولة على البايع خالص. المشتري بيدفع 1.5% عند إتمام النقل بس — من غير أي رسوم مخفية</p>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">مجاني للبائع بالكامل</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">البائع لا يدفع أي عمولة. المشتري يدفع نسبة وساطة بسيطة عند إتمام نقل الملكية رسمياً فقط.</p>
                 </div>
             </div>
             <div className="flex gap-4">
                 <div className="text-blue-500 mt-1">🛡️</div>
                 <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">خصوصيتك محفوظة</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">تقدر تختار الخروج الصامت — مفيش إعلان علني ولا تليفونات مزعجة</p>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">الخصوصية التامة</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">نظامنا يعتمد "البيع الصامت"، لا توجد إعلانات بأرقام الهواتف تسبب إزعاجاً ومكالمات وهمية.</p>
                 </div>
             </div>
             <div className="flex gap-4">
                 <div className="text-blue-500 mt-1">🛡️</div>
                 <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">من غير ضغط</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">بنعرض عليك كل الخيارات — حتى لو الأفضل ليك إنك تكمّل تعاقدك</p>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">خيارات بلا ضغوط</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">نعرض عليك الموقف المالي بشفافية، لتتخذ القرار الأنسب لك دون أي إلحاح من جهتنا.</p>
                 </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* القسم السابع: دعوة للعمل (Call to Action المزدوجة) */}
+      {/* القسم السابع: دعوة للعمل */}
       <section className="py-24 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* للمشتري */}
                   <div className="bg-white rounded-3xl p-10 text-center shadow-sm border border-slate-100 flex flex-col justify-center items-center h-72">
-                      <h3 className="text-2xl font-black text-slate-900 mb-4">بتدوّر على فرصة حقيقية؟</h3>
-                      <p className="text-slate-500 mb-8 font-medium">سجّل ميزانيتك وهنبعتلك الفرص اللي تناسب الكاش المتاح معاك والقسط اللي يريحك.</p>
-                      <Link href="/opportunities" className="bg-white border-2 border-slate-200 hover:border-slate-900 text-slate-900 font-bold py-3 px-10 rounded-xl transition-all">سجّل كمشتري</Link>
+                      <h3 className="text-2xl font-black text-slate-900 mb-4">تبحث عن فرصة استثمارية؟</h3>
+                      <p className="text-slate-500 mb-8 font-medium">أخبرنا بميزانيتك وسنوفر لك الفرص التي تناسب السيولة المتوفرة لديك والأقساط المريحة لك.</p>
+                      <Link href="/opportunities" className="bg-white border-2 border-slate-200 hover:border-slate-900 text-slate-900 font-bold py-3 px-10 rounded-xl transition-all">تصفح الفرص الآن</Link>
                   </div>
-                  {/* للبائع */}
                   <div className="bg-white rounded-3xl p-10 text-center shadow-sm border border-slate-100 flex flex-col justify-center items-center h-72">
-                      <h3 className="text-2xl font-black text-slate-900 mb-4">مش قادر تكمّل أقساطك؟</h3>
-                      <p className="text-slate-500 mb-8 font-medium">متتسرعش في قرار الإلغاء. اعرف موقفك الأول — التقييم مجاني ومن غير أي التزام.</p>
-                      <button onClick={() => setIsModalOpen(true)} className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-10 rounded-xl transition-colors">ابدأ تقييم عقدك</button>
+                      <h3 className="text-2xl font-black text-slate-900 mb-4">تجد صعوبة في تسديد أقساطك؟</h3>
+                      <p className="text-slate-500 mb-8 font-medium">لا تتسرع بفسخ العقد. اعرف موقفك المالي الآن مجاناً وبدون أي التزام.</p>
+                      <button onClick={() => setIsModalOpen(true)} className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-10 rounded-xl transition-colors">ابدأ تقييم العقد</button>
                   </div>
               </div>
           </div>
       </section>
 
-      {/* الفوتر الشامل */}
+      {/* الفوتر */}
       <footer id="contact" className="bg-slate-900 text-slate-400 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
             
-            {/* الشعار والوصف */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-transparent border border-slate-700 rounded-lg flex items-center justify-center font-bold text-white text-xl">م</div>
                 <span className="font-bold text-2xl text-white tracking-tight">عقار مَخْرَج</span>
               </div>
               <p className="text-sm font-medium leading-relaxed max-w-sm">
-                منصة التنازل عن وحدات التقسيط بدون أوفر — البايع يسترجع فلوسه كاش، والمشتري ياخد سعر التعاقد القديم، وإحنا بنسهّل الإجراءات خطوة بخطوة.
+                منصة التنازل عن العقارات ووحدات التقسيط المتعثرة. البائع يسترجع أمواله نقداً، والمشتري يضمن سعر التعاقد القديم، مع تسهيل كافة الإجراءات القانونية.
               </p>
               <div className="space-y-2 pt-4">
                   <p className="text-white font-bold text-lg dir-ltr text-left">+964 772 639 4755</p>
@@ -427,30 +416,26 @@ export default function Home() {
               </div>
             </div>
 
-            {/* روابط المنصة */}
             <div>
               <h4 className="text-white font-bold mb-6 text-sm">المنصة</h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li><Link href="/" className="hover:text-white transition-colors">المفضلة</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">حاسبة الخروج</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">للبايعين</a></li>
-                <li><Link href="/opportunities" className="hover:text-white transition-colors">للمشترين</Link></li>
+                <li><Link href="/" className="hover:text-white transition-colors">الرئيسية</Link></li>
+                <li><a href="#" className="hover:text-white transition-colors">تقييم العقد</a></li>
+                <li><a href="#how-it-works" className="hover:text-white transition-colors">آلية عمل البائع</a></li>
+                <li><Link href="/opportunities" className="hover:text-white transition-colors">آلية عمل المشتري</Link></li>
               </ul>
             </div>
 
-            {/* روابط الشركة */}
             <div>
               <h4 className="text-white font-bold mb-6 text-sm">الشركة</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li id="story"><a href="#" className="hover:text-white transition-colors">قصتنا</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">التقارير والمؤشرات</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">إزاي بنشتغل</a></li>
-                <li><Link href="/b2b" className="hover:text-white transition-colors">للمطورين</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">علاقات المستثمرين</a></li>
+                <li><a href="#how-it-works" className="hover:text-white transition-colors">شلون نشتغل</a></li>
+                <li><Link href="/b2b" className="hover:text-white transition-colors">بوابة المطورين</Link></li>
               </ul>
             </div>
 
-            {/* قانوني */}
             <div>
               <h4 className="text-white font-bold mb-6 text-sm">قانوني</h4>
               <ul className="space-y-4 text-sm font-medium">
