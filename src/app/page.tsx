@@ -123,12 +123,13 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل المتوافق مع الهوية العراقية */}
+      {/* شريط التنقل */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
+            {/* الشعار في الهيدر */}
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <div className="relative w-32 h-10"><Image src="/logo.jpg" alt="Logo" fill className="object-contain mix-blend-multiply" priority /></div>
+              <div className="relative w-40 h-16"><Image src="/logo.jpg" alt="عقار مخرج" fill className="object-contain mix-blend-multiply" priority /></div>
             </Link>
             <div className="hidden md:flex items-center gap-8 px-6 text-sm">
               <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">عرض وحدتك</button>
@@ -431,53 +432,89 @@ export default function Home() {
           </div>
       </section>
 
-      {/* الفوتر */}
+      {/* الفوتر المُحدّث والمنسّق */}
       <footer id="contact" className="bg-slate-900 text-slate-400 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
             
-            <div className="lg:col-span-2 space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-transparent border border-slate-700 rounded-lg flex items-center justify-center font-bold text-white text-xl">م</div>
-                <span className="font-bold text-2xl text-white tracking-tight">عقار مَخْرَج</span>
-              </div>
+            {/* الشعار والوصف */}
+            <div className="lg:col-span-2 space-y-6 text-right">
+              {/* إضافة اللوجو في الفوتر بنفس أبعاد الهيدر */}
+              <Link href="/" className="inline-block">
+                <div className="relative w-40 h-16 bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+                  <Image 
+                    src="/logo.jpg" 
+                    alt="عقار مخرج" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+              </Link>
               <p className="text-sm font-medium leading-relaxed max-w-sm">
                 منصة التنازل عن العقارات ووحدات التقسيط المتعثرة. البائع يسترجع أمواله نقداً، والمشتري يضمن سعر التعاقد القديم، مع تسهيل كافة الإجراءات القانونية.
               </p>
               <div className="space-y-2 pt-4">
-                  <p className="text-white font-bold text-lg dir-ltr text-left">+964 772 639 4755</p>
+                  <p className="text-white font-bold text-lg dir-ltr text-right block w-full">+964 772 639 4755</p>
                   <p className="text-slate-400 text-sm">info@aqarmakhraj.com</p>
               </div>
             </div>
 
-            <div>
+            {/* روابط المنصة */}
+            <div className="text-right">
               <h4 className="text-white font-bold mb-6 text-sm">المنصة</h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li><Link href="/" className="hover:text-white transition-colors">الرئيسية</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">تقييم العقد</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">آلية عمل البائع</a></li>
-                <li><Link href="/opportunities" className="hover:text-white transition-colors">آلية عمل المشتري</Link></li>
+                <li><Link href="/" className="hover:text-white transition-colors cursor-pointer">الرئيسية</Link></li>
+                <li><button onClick={() => setIsModalOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">تقييم العقد</button></li>
+                <li><a href="#how-it-works" className="hover:text-white transition-colors cursor-pointer">آلية عمل البائع</a></li>
+                <li><Link href="/opportunities" className="hover:text-white transition-colors cursor-pointer">آلية عمل المشتري</Link></li>
               </ul>
             </div>
 
-            <div>
+            {/* روابط الشركة */}
+            <div className="text-right">
               <h4 className="text-white font-bold mb-6 text-sm">الشركة</h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li id="story"><a href="#" className="hover:text-white transition-colors">قصتنا</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">التقارير والمؤشرات</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">شلون نشتغل</a></li>
-                <li><Link href="/b2b" className="hover:text-white transition-colors">بوابة المطورين</Link></li>
+                <li id="story"><a href="#story" className="hover:text-white transition-colors cursor-pointer">قصتنا</a></li>
+                <li><a href="#" className="hover:text-white transition-colors cursor-pointer">التقارير والمؤشرات</a></li>
+                <li><a href="#how-it-works" className="hover:text-white transition-colors cursor-pointer">شلون نشتغل</a></li>
+                <li><Link href="/b2b" className="hover:text-white transition-colors cursor-pointer">بوابة المطورين</Link></li>
               </ul>
             </div>
 
-            <div>
+            {/* روابط قانونية - تم ربطها لتفتح نوافذ واتساب مؤقتاً أو صفحات فارغة لتكون فعّالة */}
+            <div className="text-right">
               <h4 className="text-white font-bold mb-6 text-sm">قانوني</h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">الشروط والأحكام</a></li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      const msg = encodeURIComponent('مرحباً، أود الاستفسار عن سياسة الخصوصية الخاصة بالمنصة.')
+                      window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
+                    }}
+                    className="hover:text-white transition-colors cursor-pointer outline-none text-right w-full block"
+                  >
+                    سياسة الخصوصية
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      const msg = encodeURIComponent('مرحباً، أود الاطلاع على الشروط والأحكام الخاصة بالتنازل.')
+                      window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
+                    }}
+                    className="hover:text-white transition-colors cursor-pointer outline-none text-right w-full block"
+                  >
+                    الشروط والأحكام
+                  </button>
+                </li>
               </ul>
             </div>
 
+          </div>
+          
+          {/* حقوق النشر */}
+          <div className="border-t border-slate-800 pt-8 mt-8 text-center text-xs font-medium text-slate-500">
+            جميع الحقوق محفوظة © {new Date().getFullYear()} عقار مَخْرَج
           </div>
         </div>
       </footer>
