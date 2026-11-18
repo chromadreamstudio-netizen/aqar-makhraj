@@ -24,7 +24,7 @@ export default function TermsAndConditions() {
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200">
           <div className="mb-10 border-b border-slate-100 pb-8">
             <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">الشروط والأحكام</h1>
-            <p className="text-slate-500 font-medium">آخر تحديث: {new Date().toLocaleDateString('ar-IQ')}</p>
+            <p className="text-slate-500 font-medium">آخر تحديث: 2026</p>
           </div>
 
           <div className="space-y-8 text-slate-600 leading-relaxed font-medium">
