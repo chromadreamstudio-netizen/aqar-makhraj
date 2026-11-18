@@ -432,7 +432,7 @@ export default function Home() {
           </div>
       </section>
 
-      {/* الفوتر المُحدّث والمنسّق بدون خطأ new Date() */}
+      {/* الفوتر المُحدّث والمنسّق بدون خطأ new Date() مع الروابط الجديدة */}
       <footer id="contact" className="bg-slate-900 text-slate-400 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
@@ -486,26 +486,14 @@ export default function Home() {
               <h4 className="text-white font-bold mb-6 text-sm">قانوني</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li>
-                  <button 
-                    onClick={() => {
-                      const msg = encodeURIComponent('مرحباً، أود الاستفسار عن سياسة الخصوصية الخاصة بالمنصة.')
-                      window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
-                    }}
-                    className="hover:text-white transition-colors cursor-pointer outline-none text-right w-full block"
-                  >
+                  <Link href="/privacy" className="hover:text-white transition-colors cursor-pointer outline-none block">
                     سياسة الخصوصية
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => {
-                      const msg = encodeURIComponent('مرحباً، أود الاطلاع على الشروط والأحكام الخاصة بالتنازل.')
-                      window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
-                    }}
-                    className="hover:text-white transition-colors cursor-pointer outline-none text-right w-full block"
-                  >
+                  <Link href="/terms" className="hover:text-white transition-colors cursor-pointer outline-none block">
                     الشروط والأحكام
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
