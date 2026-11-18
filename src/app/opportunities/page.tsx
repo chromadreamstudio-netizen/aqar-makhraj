@@ -33,7 +33,7 @@ export default function Opportunities() {
 
   // الدالة الجديدة لزر "طلب شراء" (تحويل فوري للواتساب مع رسالة جاهزة)
   const handleBuyRequest = (compoundName: string) => {
-    const whatsappNumber = "+9647726394755" // ضع هنا رقم أخو شريكك العراقي
+    const whatsappNumber = "9647726394755" // رقم هاتف الشريك
     const message = encodeURIComponent(`مرحباً عقار مخرج، أنا مستثمر جاهز ومهتم باقتناص الفرصة المعروضة في مجمع (${compoundName}). أرجو تزويدي بالتفاصيل وآلية الدفع.`)
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
   }
@@ -86,7 +86,6 @@ export default function Opportunities() {
                       <span className="text-2xl font-black text-blue-600">${remaining > 0 ? remaining.toLocaleString() : 0}</span>
                     </div>
                     
-                    {/* تم تفعيل الزر هنا 👇 */}
                     <button 
                       onClick={() => handleBuyRequest(prop.compound_name)}
                       className="w-full mt-6 bg-slate-900 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-colors shadow-md"
@@ -100,6 +99,24 @@ export default function Opportunities() {
             })}
           </div>
         )}
+        
+        {/* سد ثغرة فقدان المشتري: نموذج تسجيل الطلب الخاص */}
+        <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center shadow-2xl border border-slate-800 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-0"></div>
+          <h3 className="text-2xl md:text-3xl font-black text-white mb-4 relative z-10">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
+          <p className="text-slate-400 mb-8 max-w-2xl mx-auto font-medium relative z-10 leading-relaxed">
+            سوق العقارات يتحرك بسرعة، وأفضل الفرص تُباع وتُحجز قبل نشرها على المنصة. سجل طلبك الخاص وسيقوم فريقنا بالبحث وتوفير العرض المناسب لك سراً خلال 48 ساعة.
+          </p>
+          <button 
+            onClick={() => {
+              const msg = encodeURIComponent('مرحباً، أبحث عن فرصة استثمارية بمواصفات معينة (المجمع/الميزانية) ولم أجدها في الموقع. أرجو المساعدة بتوفيرها.')
+              window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
+            }} 
+            className="relative z-10 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg border border-emerald-500"
+          >
+            سجل طلبك (خدمة الاستثمار VIP)
+          </button>
+        </div>
       </div>
     </main>
   )

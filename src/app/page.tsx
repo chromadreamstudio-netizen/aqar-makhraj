@@ -212,6 +212,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* زر الاستشارة البديل لسد ثغرة فقدان البائع */}
+      <div className="bg-slate-900 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a 
+              href="https://wa.me/9647726394755?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%88%D8%A3%D8%B9%D8%AA%D9%82%D8%AF%20%D8%A3%D9%86%20%D9%88%D8%AD%D8%AF%D8%AA%D9%8A%20%D8%AA%D8%B3%D8%AA%D8%AD%D9%82%20%D8%AA%D9%82%D9%8A%D9%8A%D9%85%D8%A7%D9%8B%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A7%D9%8B%20%D8%B9%D9%86%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-emerald-400 text-sm font-semibold transition-colors border-b border-slate-700 pb-1 inline-block"
+            >
+                حالتك مختلفة أو أرقامك غير مطابقة؟ تواصل مع خبير التقييم
+            </a>
+        </div>
+      </div>
+
       {/* القسم الثاني: الإحصائيات */}
       <section className="py-12 bg-white border-b border-slate-100">
           <div className="max-w-5xl mx-auto px-4">
@@ -379,9 +393,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم السابع: دعوة للعمل */}
+      {/* القسم السابع: دعوة للعمل + نموذج VIP للمشتري */}
       <section className="py-24 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-white rounded-3xl p-10 text-center shadow-sm border border-slate-100 flex flex-col justify-center items-center h-72">
                       <h3 className="text-2xl font-black text-slate-900 mb-4">تبحث عن فرصة استثمارية؟</h3>
@@ -394,6 +409,25 @@ export default function Home() {
                       <button onClick={() => setIsModalOpen(true)} className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-10 rounded-xl transition-colors">ابدأ تقييم العقد</button>
                   </div>
               </div>
+
+              {/* سد ثغرة فقدان المشتري: نموذج تسجيل الطلب الخاص (VIP) مدمج هنا */}
+              <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center shadow-2xl border border-slate-800 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-0"></div>
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-4 relative z-10">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
+                <p className="text-slate-400 mb-8 max-w-2xl mx-auto font-medium relative z-10 leading-relaxed">
+                  سوق العقارات يتحرك بسرعة، وأفضل الفرص تُباع وتُحجز قبل نشرها على المنصة. سجل طلبك الخاص وسيقوم فريقنا بالبحث وتوفير العرض المناسب لك سراً خلال 48 ساعة.
+                </p>
+                <button 
+                  onClick={() => {
+                    const msg = encodeURIComponent('مرحباً، أبحث عن فرصة استثمارية بمواصفات معينة (المجمع/الميزانية) ولم أجدها في الموقع. أرجو المساعدة بتوفيرها.')
+                    window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
+                  }} 
+                  className="relative z-10 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg border border-emerald-500"
+                >
+                  سجل طلبك (خدمة الاستثمار VIP)
+                </button>
+              </div>
+
           </div>
       </section>
 
