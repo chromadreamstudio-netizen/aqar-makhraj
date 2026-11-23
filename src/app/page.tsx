@@ -168,7 +168,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <div className="relative w-40 h-16"><Image src="/logo.jpg" alt="عقار مخرج" fill className="object-contain mix-blend-multiply" priority /></div>
+              <div className="relative w-40 h-16">
+                <Image src="/logo.jpg" alt="عقار مخرج" fill sizes="160px" className="object-contain mix-blend-multiply" priority />
+              </div>
             </Link>
             <div className="hidden md:flex items-center gap-8 px-6 text-sm">
               <button onClick={() => setIsModalOpen(true)} className="text-slate-600 hover:text-emerald-600 font-extrabold transition-colors">عرض وحدتك</button>
@@ -186,50 +188,53 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* القسم الأول: الهيرو التسويقي بخلفية معمارية عراقية فاخرة + الحاسبة التفاعلية */}
-      <section className="relative py-20 lg:py-24 overflow-hidden text-white bg-slate-950">
-        {/* صورة الخلفية المعمارية مع تدرج زمردي داكن */}
+      {/* القسم الأول: الهيرو التسويقي بخلفية معمارية واضحة ومتوازنة + الحاسبة التفاعلية */}
+      <section className="relative py-20 lg:py-28 min-h-[680px] flex items-center overflow-hidden text-white bg-slate-950">
+        {/* صورة الخلفية بوضوح عالٍ وتباين مضبوط */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-iraq.jpg"
             alt="مجمعات سكنية حديثة في العراق"
             fill
-            className="object-cover object-center opacity-35 scale-105"
+            sizes="100vw"
+            className="object-cover object-center brightness-95 contrast-105"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-slate-950/95 via-slate-900/85 to-emerald-950/75" />
+          {/* تدرج ذكي يحمي قراءة النص على اليمين ويُظهر المجمع السكني بوضوح */}
+          <div className="absolute inset-0 bg-gradient-to-l from-slate-950/90 via-slate-950/55 to-slate-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             <div className="space-y-8 order-2 lg:order-1 text-center lg:text-right">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-xs font-bold tracking-wide border border-emerald-500/30">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-950/85 backdrop-blur-md text-emerald-300 text-xs font-bold tracking-wide border border-emerald-400/40 shadow-sm">
                 منصة التنازل عن وحدات التقسيط في العراق — بدون أوفر (سرقفلية)
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight drop-shadow-sm">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight drop-shadow-md">
                 البائع يسترجع كل اللي دفعه كاش، <br />
                 <span className="text-emerald-400">والمشتري ياخذ السعر القديم</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-slate-100 leading-relaxed font-medium drop-shadow-sm">
                 إذا ما تقدر تكمّل أقساطك (سواء ويه الشركة أو قرض عقاري): بيع وحدتك بدون سرقفلية واسترجع فلوسك، بدل ما تخاطر بخسارة كبيرة من قيمة العقد بسبب غرامات الإلغاء. وإذا تدور على فرصة: اشتري بسعر تعاقد قديم وتجنب غلاء السوق.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-emerald-900/40">
+                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-emerald-950/60">
                   أريد أبيع وحدتي
                 </button>
-                <Link href="/opportunities" className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center">
+                <Link href="/opportunities" className="bg-slate-950/60 backdrop-blur-md border border-white/30 hover:bg-slate-900/80 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center">
                   تصفح فرص الشراء
                 </Link>
               </div>
-              <p className="text-sm text-slate-300/80 font-medium flex items-center justify-center lg:justify-start gap-2">
+              <p className="text-sm text-slate-200 font-medium flex items-center justify-center lg:justify-start gap-2 drop-shadow-sm">
                 <span className="text-emerald-400">🛡️</span> للبائع: مجاناً بالكامل. للمشتري: أرقام موثقة قبل ما تدفع أي دينار.
               </p>
             </div>
 
             {/* الحاسبة التفاعلية الزجاجية */}
             <div className="order-1 lg:order-2">
-              <div className="bg-slate-900/75 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/15 relative shadow-2xl">
+              <div className="bg-slate-950/75 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/20 relative shadow-2xl">
                 <div className="mb-6">
                   <h2 className="text-lg font-extrabold text-white mb-1">احسب خسارتك قبل ما تفسخ العقد 🧮</h2>
                   <p className="text-xs text-slate-300">أدخل أرقام وحدتك بالمليون دينار وشوف الفرق فوراً:</p>
@@ -243,7 +248,7 @@ export default function Home() {
                       min="0"
                       value={originalPrice}
                       onChange={(e) => setOriginalPrice(e.target.value)}
-                      className="w-full bg-slate-950/80 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-slate-900/90 border border-slate-500/60 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
                       placeholder="150"
                     />
                   </div>
@@ -254,26 +259,26 @@ export default function Home() {
                       min="0"
                       value={paidAmount}
                       onChange={(e) => setPaidAmount(e.target.value)}
-                      className="w-full bg-slate-950/80 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-slate-900/90 border border-slate-500/60 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
                       placeholder="40"
                     />
                   </div>
                 </div>
 
-                <div className="mb-5 border-b border-white/10 pb-5">
+                <div className="mb-5 border-b border-white/15 pb-5">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-red-300 font-bold text-xs bg-red-950/70 border border-red-500/30 px-3 py-1 rounded-full">✕ لو فسخت العقد ويه الشركة</span>
+                    <span className="text-red-300 font-bold text-xs bg-red-950/80 border border-red-500/40 px-3 py-1 rounded-full">✕ لو فسخت العقد ويه الشركة</span>
                   </div>
                   <p className="text-xs text-slate-300 mb-1">خصم الإلغاء المتوقع (15% من سعر الوحدة الإجمالي)</p>
                   <p className="text-3xl font-black text-red-400">- {cancellationPenalty.toLocaleString()} مليون د.ع</p>
                   <p className="text-xs text-red-300/90 mt-1">خسارة مباشرة من فلوسك + انتظار طويل للترجيع</p>
                 </div>
 
-                <div className="bg-emerald-950/60 p-5 rounded-2xl border border-emerald-500/30">
+                <div className="bg-emerald-950/75 p-5 rounded-2xl border border-emerald-400/35">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-emerald-300 font-bold text-xs bg-emerald-900/70 px-3 py-1 rounded-full">✓ لو نقلت العقد عبر عقار مَخْرَج</span>
+                    <span className="text-emerald-300 font-bold text-xs bg-emerald-900/80 px-3 py-1 rounded-full">✓ لو نقلت العقد عبر عقار مَخْرَج</span>
                   </div>
-                  <p className="text-xs text-emerald-200/80 mb-1">تسترجع كل اللي دفعته كاش (والمتبقي على المشتري: {remainingInstallments.toLocaleString()} مليون)</p>
+                  <p className="text-xs text-emerald-100/90 mb-1">تسترجع كل اللي دفعته كاش (والمتبقي على المشتري: {remainingInstallments.toLocaleString()} مليون)</p>
                   <p className="text-3xl sm:text-4xl font-black text-emerald-400">{numPaid.toLocaleString()} مليون د.ع</p>
                   <button
                     onClick={() => setIsModalOpen(true)}
@@ -292,7 +297,7 @@ export default function Home() {
               href="https://wa.me/9647726394755?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%88%D8%A3%D8%B9%D8%AA%D9%82%D8%AF%20%D8%A3%D9%86%20%D9%88%D8%AD%D8%AF%D8%AA%D9%8A%20%D8%AA%D8%B3%D8%AA%D8%AD%D9%82%20%D8%AA%D9%82%D9%8A%D9%8A%D9%85%D8%A7%D9%8B%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A7%D9%8B%20%D8%B9%D9%86%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-emerald-400 text-sm font-semibold transition-colors border-b border-slate-600 pb-1 inline-block"
+              className="text-slate-200 hover:text-emerald-400 text-sm font-semibold transition-colors border-b border-slate-400/60 pb-1 inline-block drop-shadow-sm"
             >
               حالتك مختلفة أو أرقامك غير مطابقة؟ تواصل مع خبير التقييم
             </a>
@@ -318,7 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم الثالث: المزايا المزدوجة مع صور معمارية مدمجة بذكاء */}
+      {/* القسم الثالث: المزايا المزدوجة مع صور معمارية مدمجة */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -329,15 +334,16 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* بطاقة المشتري المستثمر */}
             <div className="bg-slate-900 text-white rounded-3xl shadow-xl overflow-hidden flex flex-col group border border-slate-800">
-              <div className="relative h-60 w-full overflow-hidden">
+              <div className="relative h-64 w-full overflow-hidden">
                 <Image
                   src="/images/buyer-iraq.jpg"
                   alt="شقة فاخرة في مجمع سكني عراقي"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
-                <div className="absolute top-5 right-5 bg-slate-900/80 backdrop-blur-md text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-emerald-500/30">
+                <div className="absolute top-5 right-5 bg-slate-900/85 backdrop-blur-md text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-emerald-500/30">
                   للمشتري المستثمر
                 </div>
               </div>
@@ -359,15 +365,16 @@ export default function Home() {
 
             {/* بطاقة البائع صاحب الوحدة */}
             <div className="bg-white rounded-3xl shadow-lg border border-slate-200/80 overflow-hidden flex flex-col group">
-              <div className="relative h-60 w-full overflow-hidden">
+              <div className="relative h-64 w-full overflow-hidden">
                 <Image
                   src="/images/seller-iraq.jpg"
                   alt="توقيع التنازل الرسمي واستلام الكاش"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-slate-900/20" />
-                <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
+                <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
                   للبائع صاحب الوحدة
                 </div>
               </div>
@@ -505,7 +512,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم السابع: دعوة للعمل + بانر VIP بصورة ليلية عراقية فاخرة */}
+      {/* القسم السابع: دعوة للعمل + بانر VIP بإضاءة وتباين فخم وواضح */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -522,22 +529,23 @@ export default function Home() {
             </div>
           </div>
 
-          {/* بانر خدمة VIP بخلفية المجمع العراقي الليلي */}
-          <div className="mt-20 rounded-3xl p-10 md:p-16 text-center shadow-2xl border border-emerald-500/20 relative overflow-hidden bg-slate-950">
+          {/* بانر خدمة VIP بوضوح عالٍ للفلل الليلية وانعكاس المياه */}
+          <div className="mt-20 rounded-3xl px-8 py-16 md:px-16 md:py-24 text-center shadow-2xl border border-emerald-500/30 relative overflow-hidden bg-slate-950">
             <Image
               src="/images/vip-iraq.jpg"
               alt="فرص استثمارية حصرية في العراق"
               fill
-              className="object-cover object-center opacity-35"
+              sizes="(max-width: 1200px) 100vw, 1152px"
+              className="object-cover object-center brightness-95 contrast-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/75 to-emerald-950/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/45 to-slate-950/35" />
 
             <div className="relative z-10">
-              <span className="inline-block px-4 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-400/30 mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/25 backdrop-blur-md text-amber-200 text-xs font-bold border border-amber-400/40 mb-5 shadow-sm">
                 خدمة المستثمرين الحصرية VIP
               </span>
-              <h3 className="text-2xl md:text-4xl font-black text-white mb-4">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
-              <p className="text-slate-300 mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+              <h3 className="text-2xl md:text-4xl font-black text-white mb-4 drop-shadow-md">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
+              <p className="text-slate-100 mb-8 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-sm">
                 سوق العقارات يتحرك بسرعة، وأفضل الفرص تُباع وتُحجز قبل نشرها على المنصة. سجل طلبك الخاص وسيقوم فريقنا بالبحث وتوفير العرض المناسب لك سراً خلال 48 ساعة.
               </p>
               <button
@@ -545,7 +553,7 @@ export default function Home() {
                   const msg = encodeURIComponent('مرحباً، أبحث عن فرصة استثمارية بمواصفات معينة (المجمع/الميزانية) ولم أجدها في الموقع. أرجو المساعدة بتوفيرها.')
                   window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
                 }}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg border border-emerald-400/40"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-xl border border-emerald-400/50"
               >
                 سجل طلبك (خدمة الاستثمار VIP)
               </button>
@@ -562,7 +570,7 @@ export default function Home() {
             <div className="lg:col-span-2 space-y-6 text-right">
               <Link href="/" className="inline-block">
                 <div className="relative w-40 h-16 bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
-                  <Image src="/logo.jpg" alt="عقار مخرج" fill className="object-contain" />
+                  <Image src="/logo.jpg" alt="عقار مخرج" fill sizes="160px" className="object-contain" />
                 </div>
               </Link>
               <p className="text-sm font-medium leading-relaxed max-w-sm">
