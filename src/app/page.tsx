@@ -163,13 +163,20 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل */}
-      <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
+      {/* شريط التنقل مع اللوجو الشفاف المضبوط */}
+      <nav className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <div className="relative w-40 h-16">
-                <Image src="/logo.jpg" alt="عقار مخرج" fill sizes="160px" className="object-contain mix-blend-multiply" priority />
+            <Link href="/" className="flex-shrink-0 flex items-center py-1">
+              <div className="relative w-40 h-16 sm:w-48 sm:h-18 overflow-hidden flex items-center">
+                <Image
+                  src="/logo.png"
+                  alt="عقار مخرج"
+                  fill
+                  sizes="(max-width: 640px) 160px, 192px"
+                  className="object-contain object-right scale-125"
+                  priority
+                />
               </div>
             </Link>
             <div className="hidden md:flex items-center gap-8 px-6 text-sm">
@@ -190,7 +197,6 @@ export default function Home() {
 
       {/* القسم الأول: الهيرو التسويقي بخلفية معمارية واضحة ومتوازنة + الحاسبة التفاعلية */}
       <section className="relative py-20 lg:py-28 min-h-[680px] flex items-center overflow-hidden text-white bg-slate-950">
-        {/* صورة الخلفية بوضوح عالٍ وتباين مضبوط */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-iraq.jpg"
@@ -200,7 +206,6 @@ export default function Home() {
             className="object-cover object-center brightness-95 contrast-105"
             priority
           />
-          {/* تدرج ذكي يحمي قراءة النص على اليمين ويُظهر المجمع السكني بوضوح */}
           <div className="absolute inset-0 bg-gradient-to-l from-slate-950/90 via-slate-950/55 to-slate-950/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
         </div>
@@ -512,7 +517,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم السابع: دعوة للعمل + بانر VIP بإضاءة وتباين فخم وواضح */}
+      {/* القسم السابع: دعوة للعمل + بانر VIP */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -529,7 +534,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* بانر خدمة VIP بوضوح عالٍ للفلل الليلية وانعكاس المياه */}
+          {/* بانر خدمة VIP */}
           <div className="mt-20 rounded-3xl px-8 py-16 md:px-16 md:py-24 text-center shadow-2xl border border-emerald-500/30 relative overflow-hidden bg-slate-950">
             <Image
               src="/images/vip-iraq.jpg"
@@ -569,8 +574,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
             <div className="lg:col-span-2 space-y-6 text-right">
               <Link href="/" className="inline-block">
-                <div className="relative w-40 h-16 bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
-                  <Image src="/logo.jpg" alt="عقار مخرج" fill sizes="160px" className="object-contain" />
+                <div className="relative w-44 h-16 bg-white/95 px-4 py-2 rounded-2xl shadow-md overflow-hidden">
+                  <Image
+                    src="/logo.png"
+                    alt="عقار مخرج"
+                    fill
+                    sizes="176px"
+                    className="object-contain scale-110 p-1"
+                  />
                 </div>
               </Link>
               <p className="text-sm font-medium leading-relaxed max-w-sm">
