@@ -6,8 +6,6 @@ import Link from 'next/link'
 import { supabase } from '../lib/supabase'
 
 export default function Home() {
-  const [lang, setLang] = useState<'ar' | 'en'>('ar')
-  // القيم بالمليون دينار عراقي لسهولة الإدخال من الموبايل
   const [originalPrice, setOriginalPrice] = useState<string>('150')
   const [paidAmount, setPaidAmount] = useState<string>('40')
   const [financingType, setFinancingType] = useState<'developer' | 'bank'>('developer')
@@ -73,24 +71,22 @@ export default function Home() {
     }
   }
 
-  const FloatingWhatsApp = () => {
-    return (
-      <a
-        href="https://wa.me/9647726394755"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 bg-slate-900 text-white rounded-full flex items-center justify-center p-4 shadow-2xl hover:bg-slate-800 transition-colors z-50 group border border-slate-700"
-      >
-        <div className="flex items-center gap-3">
-          <div className="flex flex-col text-right">
-            <span className="text-sm font-bold block">اسأل عقار مَخْرَج</span>
-            <span className="text-xs text-emerald-400">نرد بثواني</span>
-          </div>
-          <span className="text-2xl">💬</span>
+  const FloatingWhatsApp = () => (
+    <a
+      href="https://wa.me/9647726394755"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 left-6 bg-slate-900/95 backdrop-blur-md text-white rounded-full flex items-center justify-center p-4 shadow-2xl hover:bg-emerald-950 transition-all z-50 border border-emerald-500/30"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col text-right">
+          <span className="text-sm font-bold block">اسأل عقار مَخْرَج</span>
+          <span className="text-xs text-emerald-400">نرد بثواني</span>
         </div>
-      </a>
-    )
-  }
+        <span className="text-2xl">💬</span>
+      </div>
+    </a>
+  )
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-emerald-200" dir="rtl">
@@ -98,7 +94,7 @@ export default function Home() {
 
       {/* النافذة المنبثقة */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4">
           <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md relative max-h-[90vh] overflow-y-auto border border-slate-100">
             <button onClick={() => setIsModalOpen(false)} className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 transition-colors text-xl font-bold bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
             <h3 className="text-2xl font-extrabold mb-2 text-slate-900 text-center mt-2">سجل بياناتك للبدء</h3>
@@ -167,8 +163,8 @@ export default function Home() {
         </div>
       )}
 
-      {/* شريط التنقل المتوافق مع الهوية العراقية */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
+      {/* شريط التنقل */}
+      <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
@@ -190,85 +186,94 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* القسم الأول: الهيرو التسويقي + حاسبة الخروج الآمن التفاعلية */}
-      <section className="bg-slate-900 py-20 overflow-hidden relative text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* القسم الأول: الهيرو التسويقي بخلفية معمارية عراقية فاخرة + الحاسبة التفاعلية */}
+      <section className="relative py-20 lg:py-24 overflow-hidden text-white bg-slate-950">
+        {/* صورة الخلفية المعمارية مع تدرج زمردي داكن */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-iraq.jpg"
+            alt="مجمعات سكنية حديثة في العراق"
+            fill
+            className="object-cover object-center opacity-35 scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-slate-950/95 via-slate-900/85 to-emerald-950/75" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             <div className="space-y-8 order-2 lg:order-1 text-center lg:text-right">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-slate-800 text-emerald-400 text-xs font-bold tracking-wide border border-slate-700">
-                منصة التنازل عن وحدات التقسيط — بدون أوفر (سرقفلية)
+              <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-xs font-bold tracking-wide border border-emerald-500/30">
+                منصة التنازل عن وحدات التقسيط في العراق — بدون أوفر (سرقفلية)
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight drop-shadow-sm">
                 البائع يسترجع كل اللي دفعه كاش، <br />
                 <span className="text-emerald-400">والمشتري ياخذ السعر القديم</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
                 إذا ما تقدر تكمّل أقساطك (سواء ويه الشركة أو قرض عقاري): بيع وحدتك بدون سرقفلية واسترجع فلوسك، بدل ما تخاطر بخسارة كبيرة من قيمة العقد بسبب غرامات الإلغاء. وإذا تدور على فرصة: اشتري بسعر تعاقد قديم وتجنب غلاء السوق.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg">
+                <button onClick={() => setIsModalOpen(true)} className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-emerald-900/40">
                   أريد أبيع وحدتي
                 </button>
-                <Link href="/opportunities" className="bg-transparent border border-slate-600 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center">
+                <Link href="/opportunities" className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center">
                   تصفح فرص الشراء
                 </Link>
               </div>
-              <p className="text-sm text-slate-500 font-medium flex items-center justify-center lg:justify-start gap-2">
-                <span className="text-emerald-500">🛡️</span> للبائع: مجاناً بالكامل. للمشتري: أرقام موثقة قبل ما تدفع أي دينار.
+              <p className="text-sm text-slate-300/80 font-medium flex items-center justify-center lg:justify-start gap-2">
+                <span className="text-emerald-400">🛡️</span> للبائع: مجاناً بالكامل. للمشتري: أرقام موثقة قبل ما تدفع أي دينار.
               </p>
             </div>
 
-            {/* الحاسبة التفاعلية للخسارة مقابل الخروج الآمن */}
+            {/* الحاسبة التفاعلية الزجاجية */}
             <div className="order-1 lg:order-2">
-              <div className="bg-slate-800/60 p-6 sm:p-8 rounded-3xl border border-slate-700 relative shadow-2xl">
+              <div className="bg-slate-900/75 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/15 relative shadow-2xl">
                 <div className="mb-6">
                   <h2 className="text-lg font-extrabold text-white mb-1">احسب خسارتك قبل ما تفسخ العقد 🧮</h2>
-                  <p className="text-xs text-slate-400">أدخل أرقام وحدتك بالمليون دينار وشوف الفرق فوراً:</p>
+                  <p className="text-xs text-slate-300">أدخل أرقام وحدتك بالمليون دينار وشوف الفرق فوراً:</p>
                 </div>
 
-                {/* مدخلات الحاسبة */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">سعر الوحدة بالعقد (مليون)</label>
+                    <label className="block text-xs font-bold text-slate-200 mb-1.5">سعر الوحدة بالعقد (مليون)</label>
                     <input
                       type="number"
                       min="0"
                       value={originalPrice}
                       onChange={(e) => setOriginalPrice(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full bg-slate-950/80 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
                       placeholder="150"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">المبلغ المدفوع (مليون)</label>
+                    <label className="block text-xs font-bold text-slate-200 mb-1.5">المبلغ المدفوع (مليون)</label>
                     <input
                       type="number"
                       min="0"
                       value={paidAmount}
                       onChange={(e) => setPaidAmount(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full bg-slate-950/80 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-extrabold text-lg outline-none focus:border-emerald-400 transition-colors"
                       placeholder="40"
                     />
                   </div>
                 </div>
 
-                {/* نتيجة الفسخ */}
-                <div className="mb-5 border-b border-slate-700 pb-5">
+                <div className="mb-5 border-b border-white/10 pb-5">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-red-400 font-bold text-xs bg-red-900/30 px-3 py-1 rounded-full">✕ لو فسخت العقد ويه الشركة</span>
+                    <span className="text-red-300 font-bold text-xs bg-red-950/70 border border-red-500/30 px-3 py-1 rounded-full">✕ لو فسخت العقد ويه الشركة</span>
                   </div>
-                  <p className="text-xs text-slate-400 mb-1">خصم الإلغاء المتوقع (15% من سعر الوحدة الإجمالي)</p>
-                  <p className="text-3xl font-black text-red-500">- {cancellationPenalty.toLocaleString()} مليون د.ع</p>
-                  <p className="text-xs text-red-400 mt-1">خسارة مباشرة من فلوسك + انتظار طويل للترجيع</p>
+                  <p className="text-xs text-slate-300 mb-1">خصم الإلغاء المتوقع (15% من سعر الوحدة الإجمالي)</p>
+                  <p className="text-3xl font-black text-red-400">- {cancellationPenalty.toLocaleString()} مليون د.ع</p>
+                  <p className="text-xs text-red-300/90 mt-1">خسارة مباشرة من فلوسك + انتظار طويل للترجيع</p>
                 </div>
 
-                {/* نتيجة عقار مخرج */}
-                <div className="bg-emerald-900/25 p-5 rounded-2xl border border-emerald-800/60">
+                <div className="bg-emerald-950/60 p-5 rounded-2xl border border-emerald-500/30">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-emerald-400 font-bold text-xs bg-emerald-900/60 px-3 py-1 rounded-full">✓ لو نقلت العقد عبر عقار مَخْرَج</span>
+                    <span className="text-emerald-300 font-bold text-xs bg-emerald-900/70 px-3 py-1 rounded-full">✓ لو نقلت العقد عبر عقار مَخْرَج</span>
                   </div>
-                  <p className="text-xs text-emerald-400/80 mb-1">تسترجع كل اللي دفعته كاش (والمتبقي على المشتري: {remainingInstallments.toLocaleString()} مليون)</p>
+                  <p className="text-xs text-emerald-200/80 mb-1">تسترجع كل اللي دفعته كاش (والمتبقي على المشتري: {remainingInstallments.toLocaleString()} مليون)</p>
                   <p className="text-3xl sm:text-4xl font-black text-emerald-400">{numPaid.toLocaleString()} مليون د.ع</p>
                   <button
                     onClick={() => setIsModalOpen(true)}
@@ -281,22 +286,19 @@ export default function Home() {
             </div>
 
           </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href="https://wa.me/9647726394755?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%88%D8%A3%D8%B9%D8%AA%D9%82%D8%AF%20%D8%A3%D9%86%20%D9%88%D8%AD%D8%AF%D8%AA%D9%8A%20%D8%AA%D8%B3%D8%AA%D8%AD%D9%82%20%D8%AA%D9%82%D9%8A%D9%8A%D9%85%D8%A7%D9%8B%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A7%D9%8B%20%D8%B9%D9%86%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 hover:text-emerald-400 text-sm font-semibold transition-colors border-b border-slate-600 pb-1 inline-block"
+            >
+              حالتك مختلفة أو أرقامك غير مطابقة؟ تواصل مع خبير التقييم
+            </a>
+          </div>
         </div>
       </section>
-
-      {/* زر الاستشارة البديل لسد ثغرة فقدان البائع */}
-      <div className="bg-slate-900 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <a
-            href="https://wa.me/9647726394755?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%88%D8%A3%D8%B9%D8%AA%D9%82%D8%AF%20%D8%A3%D9%86%20%D9%88%D8%AD%D8%AF%D8%AA%D9%8A%20%D8%AA%D8%B3%D8%AA%D8%AD%D9%82%20%D8%AA%D9%82%D9%8A%D9%8A%D9%85%D8%A7%D9%8B%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A7%D9%8B%20%D8%B9%D9%86%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-emerald-400 text-sm font-semibold transition-colors border-b border-slate-700 pb-1 inline-block"
-          >
-            حالتك مختلفة أو أرقامك غير مطابقة؟ تواصل مع خبير التقييم
-          </a>
-        </div>
-      </div>
 
       {/* القسم الثاني: الإحصائيات */}
       <section className="py-12 bg-white border-b border-slate-100">
@@ -316,7 +318,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم الثالث: المزايا المزدوجة */}
+      {/* القسم الثالث: المزايا المزدوجة مع صور معمارية مدمجة بذكاء */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -325,31 +327,69 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-slate-900 text-white rounded-3xl p-10 shadow-xl relative overflow-hidden">
-              <div className="absolute top-6 right-6 bg-slate-800 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-slate-700">للمشتري المستثمر</div>
-              <h3 className="text-3xl font-black mb-4 pr-16">وحدة بالتقسيط بدون أي مبالغ إضافية</h3>
-              <p className="text-slate-400 mb-8 leading-relaxed font-medium">تاخذ الوحدة بسعر تعاقدها القديم — أرخص من سعر الشركة اليوم بفرق كبير — وتكمّل الأقساط العادية. الفرق هذا هو مكسبك الصافي.</p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> سعر التعاقد القديم ثابت — السرقفلية ممنوعة بالمنصة</li>
-                <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> الوصولات والمدفوعات مدققة قانونياً قبل عرض الفرصة</li>
-                <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> التنازل يتم رسمياً بمقر الشركة المطورة — لا نتعامل بالوكالات العرفية</li>
-              </ul>
-              <Link href="/opportunities" className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">تصفح الفرص المتاحة</Link>
+            {/* بطاقة المشتري المستثمر */}
+            <div className="bg-slate-900 text-white rounded-3xl shadow-xl overflow-hidden flex flex-col group border border-slate-800">
+              <div className="relative h-60 w-full overflow-hidden">
+                <Image
+                  src="/images/buyer-iraq.jpg"
+                  alt="شقة فاخرة في مجمع سكني عراقي"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+                <div className="absolute top-5 right-5 bg-slate-900/80 backdrop-blur-md text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold border border-emerald-500/30">
+                  للمشتري المستثمر
+                </div>
+              </div>
+              <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-black mb-4">وحدة بالتقسيط بدون أي مبالغ إضافية</h3>
+                  <p className="text-slate-400 mb-8 leading-relaxed font-medium">تاخذ الوحدة بسعر تعاقدها القديم — أرخص من سعر الشركة اليوم بفرق كبير — وتكمّل الأقساط العادية. الفرق هذا هو مكسبك الصافي.</p>
+                  <ul className="space-y-4 mb-10 text-sm sm:text-base">
+                    <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> سعر التعاقد القديم ثابت — السرقفلية ممنوعة بالمنصة</li>
+                    <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> الوصولات والمدفوعات مدققة قانونياً قبل عرض الفرصة</li>
+                    <li className="flex items-center gap-3"><span className="text-emerald-400">✓</span> التنازل يتم رسمياً بمقر الشركة المطورة — لا نتعامل بالوكالات العرفية</li>
+                  </ul>
+                </div>
+                <Link href="/opportunities" className="inline-block text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-lg">
+                  تصفح الفرص المتاحة
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 shadow-lg border border-slate-100 relative">
-              <div className="absolute top-6 right-6 bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold">للبائع صاحب الوحدة</div>
-              <h3 className="text-3xl font-black text-slate-900 mb-4 pr-32">البيع بالسعر الأصلي = أسرع تسييل بالسوق</h3>
-              <p className="text-slate-600 mb-8 leading-relaxed font-medium">لأن سعرك العادل هو نفس اللي دفعته، وحدتك تعتبر لقطة للمستثمرين فتباع أسرع. تسترجع فلوسك كاش كاملة بدل غرامات الشركات.</p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> تسترجع 100% من اللي دفعته — كاش عند إتمام التنازل</li>
-                <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> بيع صامت بدون إعلانات مزعجة ومكالمات دلالين</li>
-                <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> نجهز ملف التنازل ونرافقك لحد توقيع العقد واستلام الكاش</li>
-              </ul>
-              <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl text-center font-bold mb-6 text-sm">
-                الخدمة مجانية بالكامل للبائع — عقار مَخْرَج لا يأخذ أي عمولة منك.
+            {/* بطاقة البائع صاحب الوحدة */}
+            <div className="bg-white rounded-3xl shadow-lg border border-slate-200/80 overflow-hidden flex flex-col group">
+              <div className="relative h-60 w-full overflow-hidden">
+                <Image
+                  src="/images/seller-iraq.jpg"
+                  alt="توقيع التنازل الرسمي واستلام الكاش"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-slate-900/20" />
+                <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
+                  للبائع صاحب الوحدة
+                </div>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors">اعرض وحدتك للتنازل</button>
+              <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">البيع بالسعر الأصلي = أسرع تسييل بالسوق</h3>
+                  <p className="text-slate-600 mb-8 leading-relaxed font-medium">لأن سعرك العادل هو نفس اللي دفعته، وحدتك تعتبر لقطة للمستثمرين فتباع أسرع. تسترجع فلوسك كاش كاملة بدل غرامات الشركات.</p>
+                  <ul className="space-y-4 mb-8 text-sm sm:text-base">
+                    <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> تسترجع 100% من اللي دفعته — كاش عند إتمام التنازل</li>
+                    <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> بيع صامت بدون إعلانات مزعجة ومكالمات دلالين</li>
+                    <li className="flex items-center gap-3 text-slate-800 font-semibold"><span className="text-emerald-600">✓</span> نجهز ملف التنازل ونرافقك لحد توقيع العقد واستلام الكاش</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl text-center font-bold mb-5 text-sm border border-emerald-100">
+                    الخدمة مجانية بالكامل للبائع — عقار مَخْرَج لا يأخذ أي عمولة منك.
+                  </div>
+                  <button onClick={() => setIsModalOpen(true)} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors shadow-md">
+                    اعرض وحدتك للتنازل
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -434,28 +474,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             <div className="flex gap-4">
-              <div className="text-blue-500 mt-1">🛡️</div>
+              <div className="text-emerald-600 mt-1 text-xl">🛡️</div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">كل رقم له مصدر</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">نوضح للمشتري الأرقام المؤكدة بالمستندات فقط، نرفض المبالغات والأسعار الوهمية.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-blue-500 mt-1">🛡️</div>
+              <div className="text-emerald-600 mt-1 text-xl">🛡️</div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">مجاني للبائع بالكامل</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">البائع لا يدفع أي عمولة. المشتري يدفع نسبة وساطة بسيطة عند إتمام نقل الملكية رسمياً فقط.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-blue-500 mt-1">🛡️</div>
+              <div className="text-emerald-600 mt-1 text-xl">🛡️</div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">الخصوصية التامة</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">نظامنا يعتمد "البيع الصامت"، لا توجد إعلانات بأرقام الهواتف تسبب إزعاجاً ومكالمات وهمية.</p>
+                <p className="text-slate-500 text-sm leading-relaxed">نظامنا يعتمد &quot;البيع الصامت&quot;، لا توجد إعلانات بأرقام الهواتف تسبب إزعاجاً ومكالمات وهمية.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-blue-500 mt-1">🛡️</div>
+              <div className="text-emerald-600 mt-1 text-xl">🛡️</div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">خيارات بلا ضغوط</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">نعرض عليك الموقف المالي بشفافية، لتتخذ القرار الأنسب لك دون أي إلحاح من جهتنا.</p>
@@ -465,7 +505,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* القسم السابع: دعوة للعمل + نموذج VIP للمشتري */}
+      {/* القسم السابع: دعوة للعمل + بانر VIP بصورة ليلية عراقية فاخرة */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -482,21 +522,34 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center shadow-2xl border border-slate-800 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-0"></div>
-            <h3 className="text-2xl md:text-3xl font-black text-white mb-4 relative z-10">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
-            <p className="text-slate-400 mb-8 max-w-2xl mx-auto font-medium relative z-10 leading-relaxed">
-              سوق العقارات يتحرك بسرعة، وأفضل الفرص تُباع وتُحجز قبل نشرها على المنصة. سجل طلبك الخاص وسيقوم فريقنا بالبحث وتوفير العرض المناسب لك سراً خلال 48 ساعة.
-            </p>
-            <button
-              onClick={() => {
-                const msg = encodeURIComponent('مرحباً، أبحث عن فرصة استثمارية بمواصفات معينة (المجمع/الميزانية) ولم أجدها في الموقع. أرجو المساعدة بتوفيرها.')
-                window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
-              }}
-              className="relative z-10 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg border border-emerald-500"
-            >
-              سجل طلبك (خدمة الاستثمار VIP)
-            </button>
+          {/* بانر خدمة VIP بخلفية المجمع العراقي الليلي */}
+          <div className="mt-20 rounded-3xl p-10 md:p-16 text-center shadow-2xl border border-emerald-500/20 relative overflow-hidden bg-slate-950">
+            <Image
+              src="/images/vip-iraq.jpg"
+              alt="فرص استثمارية حصرية في العراق"
+              fill
+              className="object-cover object-center opacity-35"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/75 to-emerald-950/60" />
+
+            <div className="relative z-10">
+              <span className="inline-block px-4 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-400/30 mb-4">
+                خدمة المستثمرين الحصرية VIP
+              </span>
+              <h3 className="text-2xl md:text-4xl font-black text-white mb-4">لم تجد الفرصة المناسبة لميزانيتك؟</h3>
+              <p className="text-slate-300 mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+                سوق العقارات يتحرك بسرعة، وأفضل الفرص تُباع وتُحجز قبل نشرها على المنصة. سجل طلبك الخاص وسيقوم فريقنا بالبحث وتوفير العرض المناسب لك سراً خلال 48 ساعة.
+              </p>
+              <button
+                onClick={() => {
+                  const msg = encodeURIComponent('مرحباً، أبحث عن فرصة استثمارية بمواصفات معينة (المجمع/الميزانية) ولم أجدها في الموقع. أرجو المساعدة بتوفيرها.')
+                  window.open(`https://wa.me/9647726394755?text=${msg}`, '_blank')
+                }}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg border border-emerald-400/40"
+              >
+                سجل طلبك (خدمة الاستثمار VIP)
+              </button>
+            </div>
           </div>
 
         </div>
